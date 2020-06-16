@@ -19,7 +19,7 @@
             <ColumnDefinition />
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
-        <TextBlock x:Name="txBlock1" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Bottom">gp, %%</TextBlock>
+        <TextBlock x:Name="txBlock1" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Bottom">gp, %</TextBlock>
         <TextBlock x:Name="txBlock2" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Bottom">Dt, sec</TextBlock>
         <TextBlock x:Name="txBlock3" Grid.Row="0" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Bottom">tau1, sec</TextBlock>
 
