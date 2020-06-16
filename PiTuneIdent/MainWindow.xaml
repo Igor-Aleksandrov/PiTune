@@ -1,0 +1,42 @@
+﻿<Window x:Class="PiTuneIdent.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PiTuneIdent"
+        mc:Ignorable="d"
+        Title="PiTun" Height="400" Width="300">
+    <Grid x:Name="LayoutRoot" Background="DarkGray">
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <TextBlock x:Name="txBlock1" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Bottom">gp, %</TextBlock>
+        <TextBlock x:Name="txBlock2" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Bottom">Dt, sec</TextBlock>
+        <TextBlock x:Name="txBlock3" Grid.Row="0" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Bottom">tau1, sec</TextBlock>
+
+        <TextBlock x:Name="txBlock4" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center">P</TextBlock>
+        <TextBlock x:Name="txBlock5" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">I</TextBlock>
+        <TextBlock x:Name="txBlock6" Grid.Row="3" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center">D</TextBlock>
+
+        <Button x:Name="btTunP" Grid.Row="2" Grid.Column="0" Margin="5">Tunning P</Button>
+        <Button x:Name="btTunPI" Grid.Row="2" Grid.Column="1" Margin="5">Tunning PI</Button>
+        <Button x:Name="btTunPID" Grid.Row="2" Grid.Column="2" Margin="5">Tunning PID</Button>
+
+        <TextBox x:Name="tbGp" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <TextBox x:Name="tbDt" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <TextBox x:Name="tbTau1" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+        <TextBlock x:Name="txP" Grid.Row="4" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="5"/>
+        <TextBlock x:Name="txI" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="5"/>
+        <TextBlock x:Name="txD" Grid.Row="4" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="5"/>
+    </Grid>
+</Window>
