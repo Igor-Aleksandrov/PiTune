@@ -1,5 +1,5 @@
 # PiTune
-The program for tunning the PID controllers in the automatic process control system.
+The program for tuning the PID controllers in the automatic process control system.
 
 The project aims: to gain practical experience in software development by C#, to understand how to tune industrial PID controllers for practical use.
 
