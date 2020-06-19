@@ -24,6 +24,7 @@ namespace PiTuneIdent
     {
         ControllerCentumPID controller = new ControllerCentumPID();
         ObjectModels objectConrtol = new ObjectModels(10,5,60);
+        double[] x, xD, y, yD;
 
         public MainWindow()
         {
@@ -44,6 +45,17 @@ namespace PiTuneIdent
             objectConrtol.Gp = double.Parse(tbGp.Text);
             objectConrtol.Dt = double.Parse(tbDt.Text);
             objectConrtol.Tau1 = double.Parse(tbTau1.Text);
+
+            x = new double[int.Parse(tbTau1.Text) * 3];
+            xD = new double[int.Parse(tbTau1.Text) * 3];
+            for (int i = 1; i < x.Length; i++)
+            {
+                x[i] = 1;
+                xD[i] = 2;
+            }
+
+            y = objectConrtol.CalcTrend(x);
+            yD = objectConrtol.CalcTrendD(xD);
         }
 
         private void btTunP_Click(object sender, RoutedEventArgs e)
