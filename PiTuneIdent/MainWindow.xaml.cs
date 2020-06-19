@@ -55,7 +55,20 @@ namespace PiTuneIdent
             }
 
             y = objectConrtol.CalcTrend(x);
-            yD = objectConrtol.CalcTrendD(xD);
+            yD = objectConrtol.CalcTrendD(xD,1,0);
+
+            PointCollection points = new PointCollection();
+            for (int i = 1; i < yD.Length; i++)
+            {
+                points.Add(new Point(i, yD[i]));
+            }
+            
+            Polyline polyline = new Polyline();
+            polyline.StrokeThickness = 1;
+            polyline.Stroke = Brushes.Red;
+            polyline.Points = points;
+
+            canGraph.Children.Add(polyline);
         }
 
         private void btTunP_Click(object sender, RoutedEventArgs e)
