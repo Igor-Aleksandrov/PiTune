@@ -101,7 +101,7 @@ namespace PiTuneIdent.Domain
         }
 
         /// <summary>
-        /// Calculation of an output trend of the first order transfer function via a linear difference equation.
+        /// Calculation of an output trend of the first order transfer function.
         /// </summary>
         /// <param name="x"> Input control action (Controller output)</param>
         /// <param name="y0"></param>
