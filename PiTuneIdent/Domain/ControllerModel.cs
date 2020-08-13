@@ -20,11 +20,11 @@ namespace PiTuneIdent.Domain
         Parallel,
         CentumPID
     }
-    
+
     /// <summary>
     /// Contains a controller's tunning parameters.
     /// </summary>
-    abstract class ControllerModel
+    public abstract class ControllerModel
     {
         private double i;
         /// <summary>

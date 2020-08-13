@@ -11,7 +11,7 @@ namespace PiTuneIdent.Domain
     /// The parameters are calculated experimentally by indetification or by analytical methods.
     /// The parameters of the control object are necessary for calculating the PID controler's tunning parameters of the control loop.
     /// </summary>
-    abstract class ObjectModel
+    public abstract class ObjectModel
     {
         private double dt;
         private double tau1;

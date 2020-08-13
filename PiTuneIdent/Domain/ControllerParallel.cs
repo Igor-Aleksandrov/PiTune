@@ -3,7 +3,7 @@
     /// <summary>
     /// Parallel Controller Algorithm. P = Kp (Proportional Gain); I = Ki (Integral Gain); D = Kd (Derivative Time).   
     /// </summary>
-    class ControllerParallel : ControllerModel, ITransferFunction
+    public class ControllerParallel : ControllerModel, ITransferFunction
     {
         public ControllerParallel()
         {

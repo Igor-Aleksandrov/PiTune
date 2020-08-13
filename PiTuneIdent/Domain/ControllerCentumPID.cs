@@ -3,7 +3,7 @@
     /// <summary>
     /// CentumPID Controller Algorithm. P = PB (Proportional band); I = Ti (Integral Time); D = Td (Derivative Time).   
     /// </summary>
-    class ControllerCentumPID : ControllerModel, ITransferFunction
+    public class ControllerCentumPID : ControllerModel, ITransferFunction
     {
         public ControllerCentumPID()
         {

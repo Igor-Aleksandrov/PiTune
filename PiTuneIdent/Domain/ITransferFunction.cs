@@ -1,6 +1,6 @@
 ﻿namespace PiTuneIdent.Domain
 {
-    interface ITransferFunction
+    public interface ITransferFunction
     {
         double TransferFunction(double input);
     }

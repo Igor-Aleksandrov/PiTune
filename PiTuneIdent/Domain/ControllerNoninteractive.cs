@@ -3,7 +3,7 @@
     /// <summary>
     /// Noninteractive Controller Algorithm. P = Kc (Controller Gain); I = Ti (Integral Time); D = Td (Derivative Time).   
     /// </summary>
-    class ControllerNoninteractive : ControllerModel, ITransferFunction
+    public class ControllerNoninteractive : ControllerModel, ITransferFunction
     {
         /// <summary>
         /// Creating PID Noninteractive Controller.
