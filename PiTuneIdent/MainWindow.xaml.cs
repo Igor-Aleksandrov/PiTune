@@ -2,6 +2,7 @@
 using PiTuneIdent.Metods;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -86,13 +87,15 @@ namespace PiTuneIdent
 
         private void btTunP_Click(object sender, RoutedEventArgs e)
         {
-            readModel();
+            //if (yModel == null || yModel.Length == 0)
+                WriteToCSV(yModel);
+            /*readModel();
 
             controller.Convert(ZieglerNicholsMetod.TuningP(objectConrtol));
 
             txP.Text = controller.P.ToString().Substring(0, 8);
             txI.Text = "";
-            txD.Text = "";
+            txD.Text = "";*/
         }
 
         private void btTunPI_Click(object sender, RoutedEventArgs e)
@@ -115,6 +118,29 @@ namespace PiTuneIdent
             txP.Text = controller.P.ToString().Substring(0, 8);
             txI.Text = controller.I.ToString();
             txD.Text = controller.D.ToString();
+        }
+
+        // Data write to .csv with a separator ";"
+        public void WriteToCSV(double[,] dbCargo)
+        {
+            string stCargo = "PV;SV;MV;E;\r\n";
+            string WritePath = "D://Projects//C_Sharp//_temp//PID.csv";
+
+            int n = dbCargo.GetUpperBound(0) + 1;
+            int m = dbCargo.Length / n;
+            for (int l = 0; l < m; l++)
+            {
+                for (int k = 0; k < n; k++)
+                {
+                    stCargo += $"{dbCargo[k, l]};";
+                }
+                stCargo += "\r\n";
+            }
+            using (var w = new StreamWriter(WritePath))
+            {
+                w.WriteLine(stCargo);
+                w.Flush();
+            }
         }
     }
 }
