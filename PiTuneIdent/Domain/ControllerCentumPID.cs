@@ -39,12 +39,13 @@
         /// <param name="y0"></param>
         /// <param name="x0"></param>
         /// <returns>Process variable after the element</returns>
-        public double[,] CalcTrendD(double sv0 = 15, double pv0 = 20, double mv0 = 10, double Gp = 2, double Tau1 = 60)
+        public double[,] CalcTrendD(double Gp = 2, double Tau1 = 60, double sv0 = 20, double pv0 = 40, double mv0 = 20)
         {
             int delta = 1; // Time different between x[i] and x[i-1]
-            int len = 200 * delta;
+            int len = 300 * delta;
             double[,] y = new double[4, len];
-            
+
+            P = 100;
             // stable state
             y[0, 0] = pv0;                  // PV
             y[1, 0] = pv0;                  // SV
@@ -54,15 +55,15 @@
             y[0, 1] = y[0, 0];              // PV
             y[1, 1] = sv0;                  // SV
             y[3, 1] = y[0, 1] - y[1, 1];    // E = PV - SV
-            y[2, 1] = y[2, 0] + (y[3, 1] - y[3, 0] + y[3, 1] * delta / I + (y[3, 1] - 2 * y[3, 0]) * D / delta) * 100 / P; // MV
+            y[2, 1] = y[2, 0] + (y[3, 1] - y[3, 0] + y[3, 1] * delta / I + (y[3, 1] - 2 * y[3, 0]) * D / delta) * 1 / P; // MV
 
             // next PV, MV calculated via a linear difference equation
             for (int i = 2; i < len; i++)
             {
-                y[0, i] = y[2, i-1] * delta * Gp / (Tau1 + delta) + y[0, i - 1] * Tau1 / (Tau1 + delta);
-
+                y[0, i] = y[2, i-1] * delta * Gp / (Tau1 + delta) + y[0, i - 1] * Tau1 / (Tau1 + delta); //PV
+                y[1, i] = y[1, i-1];                  // SV
                 y[3, i] = y[0, i] - y[1, i];    // E = PV - SV
-                y[2, i] = y[2, i-1] + (y[3, i] - y[3, i-1] + y[3,i] * delta / I + (y[3, i] - 2 * y[3, i-1] + y[3, i-2]) * D / delta) * 100 / P;
+                y[2, i] = y[2, i-1] + (y[3, i] - y[3, i-1] + y[3,i] * delta / I + (y[3, i] - 2 * y[3, i-1] + y[3, i-2]) * D / delta) * 1 / P; //MV
             }
 
             return y;

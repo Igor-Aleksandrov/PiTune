@@ -23,8 +23,9 @@ namespace PiTuneIdent
     public partial class MainWindow : Window
     {
         ControllerCentumPID controller = new ControllerCentumPID();
-        ObjectModels objectConrtol = new ObjectModels(10,5,60);
+        ObjectModels objectConrtol = new ObjectModels(2,5,60);
         double[] x, xD, y, yD;
+        double[,] yModel;
 
         public MainWindow()
         {
@@ -54,21 +55,33 @@ namespace PiTuneIdent
                 xD[i] = 2;
             }
 
-            y = objectConrtol.CalcTrend(x);
+            //y = objectConrtol.CalcTrend(x);
             yD = objectConrtol.CalcTrendD(xD,1,0);
+            yModel = controller.CalcTrendD(objectConrtol.Gp, objectConrtol.Tau1);
 
             PointCollection points = new PointCollection();
             for (int i = 1; i < yD.Length; i++)
             {
                 points.Add(new Point(i, yD[i]));
             }
-            
             Polyline polyline = new Polyline();
             polyline.StrokeThickness = 1;
             polyline.Stroke = Brushes.Red;
             polyline.Points = points;
 
+            int j = yModel.GetUpperBound(0)+1;
+            PointCollection pointsM = new PointCollection();
+            for (int i = 1; i < yModel.Length/j; i++)
+            {
+                pointsM.Add(new Point(i, yModel[0, i]));
+            }
+            Polyline polylineM = new Polyline();
+            polylineM.StrokeThickness = 1;
+            polylineM.Stroke = Brushes.Green;
+            polylineM.Points = pointsM;
+
             canGraph.Children.Add(polyline);
+            canGraph.Children.Add(polylineM);
         }
 
         private void btTunP_Click(object sender, RoutedEventArgs e)
