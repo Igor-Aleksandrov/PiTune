@@ -112,9 +112,10 @@ namespace PiTuneIdent.Domain
             double[] y = new double[len];
             int delta = 2; // Time different between x[i] and x[i-1]
 
-            // first element of first order = 0
+            // first element of first order
+            y[0] = y0;
             // next element calculated via a linear difference equation
-            for (int i = 2; i < len; i++)
+            for (int i = 1; i < len; i++)
             {
                 y[i] = x[i] * delta * Gp/(Tau1 + delta) + y[i-1] * Tau1 / (Tau1 + delta);
             }

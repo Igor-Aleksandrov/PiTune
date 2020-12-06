@@ -57,7 +57,7 @@ namespace PiTuneIdent
             }
 
             //y = objectConrtol.CalcTrend(x);
-            yD = objectConrtol.CalcTrendD(xD,1,0);
+            yD = objectConrtol.CalcTrend(x,50);
             yModel = controller.CalcTrendD(objectConrtol.Gp, objectConrtol.Tau1);
 
             PointCollection points = new PointCollection();
